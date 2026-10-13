@@ -152,8 +152,7 @@ body{
   background: #fff;
   color: #111;
   z-index: -1;
-  overflow-y: auto;
-  overflow-x: hidden;     
+  overflow-y: auto;    
 
   opacity: 0;
   visibility: hidden;
