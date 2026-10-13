@@ -1,5 +1,5 @@
-import NavBar from "../Components/navbar";
-import { supbase } from "../supabaseClient";
+import NavBar from "../Components/NavBar";
+import { supabase } from "../supabaseClient";
 
  
  const Hero = () => {
