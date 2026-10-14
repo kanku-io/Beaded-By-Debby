@@ -152,7 +152,8 @@ body{
   background: #fff;
   color: #111;
   z-index: -1;
-  overflow-y: auto;    
+  overflow-y: auto;
+  overflow-x: hidden;
 
   opacity: 0;
   visibility: hidden;
@@ -164,40 +165,91 @@ body{
   visibility: visible;
 }
 
+/* tabs */
 .menu-tabs {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 0.75rem;
-  font-family: var(--font-body);
-  letter-spacing: 0.1rem;
-  font-weight: 600;
   padding: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
 }
 
 .menu-tabs p {
-  flex: 1;                 
-  border: 1px solid black;
+  flex: 1;
+  border: 1px solid #111;
   padding: 0.5rem 0.25rem;
   text-align: center;
   font-size: 0.7rem;
-  letter-spacing: 0.05rem; 
+  letter-spacing: 0.08rem;
 }
 
+/* fading dividers */
+.mobile-menu hr {
+  border: none;
+  height: 1px;
+  margin: 0.25rem 1rem;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), #111, rgba(0, 0, 0, 0));
+}
+
+/* text rows */
+.menu-rows {
+  padding: 0.25rem 0;
+}
+
+.menu-rows p {
+  padding: 0.9rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+}
+
+/* three-tile grid */
 .images-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
   padding: 1rem;
 }
 
 .img-cont {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .img-cont img {
-  width: 80%;
-  max-width: 100%;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.img-cont p {
+  margin-top: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.navbar-heading {
+  transition: color 0.3s ease;
+}
+
+.navbar-container.menu-open .navbar-heading {
+  color: #111;
+}
+
+.navbar-container.menu-open {
+  background: #fff;
+}
+
+.nav-actions {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.navbar-container.menu-open .nav-actions {
+  opacity: 0;
+  visibility: hidden;
 }
