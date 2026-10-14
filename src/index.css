@@ -196,6 +196,15 @@ body{
   padding: 0.25rem 0;
 }
 
+.menu-rows div{
+  display:flex;
+  justify-content: space-between;
+}
+
+.menu-rows div svg{
+  margin-right:1rem;
+}
+
 .menu-rows p {
   padding: 0.9rem 1rem;
   font-family: var(--font-body);
@@ -253,3 +262,66 @@ body{
   opacity: 0;
   visibility: hidden;
 }
+
+.hb-acc div, .hb-cart div{
+  display:flex;
+  align-items: center;
+  color: black;
+  padding: 0.5rem 1rem;
+  gap:1rem;
+}
+
+.hb-acc, .hb-cart{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-bottom: 0.2rem;
+}
+
+.svg2{
+  margin-right: 1rem;
+}
+
+.cta{
+  display:flex;
+  flex-direction: column;
+  width:100vw;
+}
+
+.cta button{
+  width:80vw;
+  margin: 1rem auto;
+  height: 2.5rem;
+  background-color: black;
+  color: white;
+  border:none;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cta input{
+  width:75vw;
+  margin: auto;
+  height:1rem;
+  padding:0.5rem;
+}
+
+.hb-contact{
+  display:flex;
+  justify-content: center;
+  gap:5rem;
+  margin:1rem 0rem;
+}
+
+.hamburger-footer p{
+  display:flex;
+  justify-content: center;
+  margin-top:1rem;
+}
+
