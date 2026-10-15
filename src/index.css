@@ -7,6 +7,9 @@
   /*Fonts*/
   --font-heading: "Italiana", sans-serif;
   --font-body: "Inter", sans-serif;
+
+  /*Layout*/
+  --nav-h: 4.5rem;
 }
 
 *{
@@ -27,18 +30,18 @@ body{
 */
 
 .navbar-container{
-  position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:10;
-  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: var(--text);
   font-family: var(--font-heading);
-  padding: 1.5rem 1rem;
+  padding: 0 1rem;
   background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0));
 }
 
@@ -51,6 +54,11 @@ body{
 .navbar-heading{
   font-size: 1.5rem;
   transform: translateX(0.5rem);
+}
+
+.navbar-container.scrolled {
+  transition: 1s ease;
+  background: #000;
 }
 
 /*
@@ -72,7 +80,6 @@ body{
   position: relative;
   height:100vh;
   overflow: hidden;
-  
 }
 
 .hero-container::after{
@@ -100,7 +107,6 @@ body{
   width:100vw;
   text-align: center;
   margin-bottom: 5rem;
-  
 }
 
 .hero-text h2{
@@ -129,7 +135,6 @@ body{
   text-align: center;
   margin-bottom: 2rem;
   gap:2rem;
-  
 }
 
 .hero-btns button{
@@ -147,13 +152,16 @@ body{
 
 .mobile-menu {
   position: fixed;
-  inset: 0;
-  padding-top: 4.5rem;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: #fff;
   color: #111;
   z-index: -1;
   overflow-y: auto;
   overflow-x: hidden;
+  overscroll-behavior: contain;
 
   opacity: 0;
   visibility: hidden;
@@ -163,6 +171,12 @@ body{
 .mobile-menu.open {
   opacity: 1;
   visibility: visible;
+}
+
+/* lock page scroll while the menu is open */
+html:has(.navbar-container.menu-open),
+body:has(.navbar-container.menu-open) {
+  overflow: hidden;
 }
 
 /* tabs */
@@ -418,7 +432,6 @@ body{
   letter-spacing: 0.14rem;
   text-transform: uppercase;
   text-align: center;
-  font-weight: 500;
 }
 
 .bag-status {

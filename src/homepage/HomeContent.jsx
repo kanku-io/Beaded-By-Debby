@@ -91,6 +91,8 @@ const Bags = () => {
         })}
       </div>
     </section>
+
+    
   );
 };
 

@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Hamburger from './Hamburger';
 
 const NavBar = () => {
 
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+   useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+
+    onScroll(); 
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <div className={`navbar-container ${open ? "menu-open" : ""}`}>
+    <div className={`navbar-container ${scrolled ? "scrolled" : ""} ${open ? "menu-open" : ""}`}>
       <Hamburger open={open} setOpen={setOpen}/>
       <p className='navbar-heading'>Beaded By Debby</p>
       <div className="nav-actions">
