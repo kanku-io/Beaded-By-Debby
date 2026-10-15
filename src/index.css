@@ -325,3 +325,108 @@ body{
   margin-top:1rem;
 }
 
+/*
+===============================================================
+                            BAG-MENU
+===============================================================
+*/
+
+.home-content-container {
+  background-color: #fff;
+  color: #111;
+  padding: 3.5rem 1rem 4rem;
+}
+
+.bag-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 2.25rem;
+}
+
+.bag-section-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.bag-section-rule {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  background-color: #111;
+}
+
+.bag-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 0.9rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bag-card-media {
+  position: relative;
+  overflow: hidden;
+  background-color: #f4f2ee;
+}
+
+.bag-card-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+.bag-card:hover .bag-card-media img {
+  transform: scale(1.04);
+}
+
+.bag-card-btn {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 0.6rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(17, 17, 17, 0.08);
+  background-color: rgba(255, 255, 255, 0.92);
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.bag-card-btn:hover,
+.bag-card-btn:focus-visible {
+  background-color: #111;
+  color: #fff;
+}
+
+.bag-card-name {
+  margin-top: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+}
+
+.bag-status {
+  background-color: #fff;
+  color: #111;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
