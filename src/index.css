@@ -78,7 +78,7 @@ body{
 
 .hero-container{
   position: relative;
-  height:100vh;
+  height:90vh;
   overflow: hidden;
 }
 
@@ -442,4 +442,50 @@ body:has(.navbar-container.menu-open) {
   font-size: 0.75rem;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
+}
+
+/*
+===============================================================
+                            CART MENU
+===============================================================
+*/
+
+.cart-menu {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  color: #111;
+  z-index: -1;
+  padding: 1rem;
+  font-family: var(--font-body);
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cart-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.navbar-container.cart-open {
+  background: #fff;
+  color: #111;
+}
+
+html:has(.navbar-container.cart-open),
+body:has(.navbar-container.cart-open) {
+  overflow: hidden;
+}
+
+.nav-actions button{
+  color:inherit;
 }
