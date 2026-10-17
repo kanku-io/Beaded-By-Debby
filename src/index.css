@@ -565,3 +565,203 @@ body:has(.navbar-container.cart-open) {
   background: #111;
   color: #fff;
 }
+
+/*
+===============================================================
+                        DESKTOP LAYOUT
+===============================================================
+*/
+
+/* ---------- hidden on mobile ---------- */
+.nav-links,
+.hero-extra,
+.hero-desktop,
+.feature-lorem {
+  display: none;
+}
+
+/* wrapper disappears on mobile, so the original order is kept */
+.feature-text {
+  display: contents;
+}
+
+.accessory-img-container { order: 1; }
+.accessory-btns { order: 2; }
+
+/* ---------- desktop ---------- */
+@media (min-width: 1024px) {
+
+  /* NAV: links left, brand centre, actions right */
+  .navbar-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 2.5rem;
+  }
+
+  .nav-mobile {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+  }
+
+  .nav-links a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.85;
+    transition: opacity 0.25s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus-visible {
+    opacity: 1;
+  }
+
+  .navbar-heading {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    transform: none;
+  }
+
+  .nav-actions {
+    justify-self: end;
+    padding-right: 0;
+    gap: 1rem;
+  }
+
+  /* HERO: three full-bleed images with the brand name over them */
+  .mobile-only {
+    display: none;
+  }
+
+  .hero-container {
+    height: 100vh;
+  }
+
+  .hero-container::after {
+    height: 65%;
+  }
+
+  .hero-images {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: minmax(0, 1fr);
+    gap: 0.3rem;
+  }
+
+  .hero-images .hero-image,
+  .hero-images .hero-extra {
+    display: block;
+    position: static;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    transform: none;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .hero-desktop {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5rem;
+    color: var(--text);
+  }
+
+  .hero-desktop h1 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    line-height: 1;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .hero-desktop button {
+    margin-top: 2rem;
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    border: 1px solid var(--text);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .hero-desktop button:hover,
+  .hero-desktop button:focus-visible {
+    background: var(--text);
+    color: #000;
+  }
+
+  /* BAGS + ACCESSORIES: two-column rows */
+  .home-content-container {
+    padding: 6rem 3rem;
+  }
+
+  .home-content-container > hr {
+    max-width: 1200px;
+    margin: 5rem auto;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .feature-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .feature-lorem {
+    display: block;
+    max-width: 26rem;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .feature-row .bag-grid {
+    max-width: none;
+    margin: 0;
+    gap: 1.5rem;
+  }
+
+  /* accessories: grid on the left, text on the right */
+  .accessory-hero .accessory-img-container {
+    order: 0;
+    max-width: none;
+    margin: 0;
+    gap: 1.5rem;
+  }
+
+  .accessory-hero .feature-text {
+    order: 1;
+  }
+}

@@ -19,6 +19,9 @@ const BagIcon = () => (
   </svg>
 );
 
+const LOREM =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.";
+
 const Bags = () => {
   const [bag, setBag] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,11 +36,11 @@ const Bags = () => {
         .from("product_variants")
         .select("*, products(name)")
         .in("id", [
-        "a7361901-1bd5-4ed3-bbe2-aeb465a5e513",
-        "c44b9d82-4ffc-4a48-beda-1045db209dae",
-        "7117d33b-d2e0-4e4e-af2f-1f8c10c86cc1",
-        "6ba13c0e-0ad9-446a-9f0d-4570e3d90d43",
-]);
+          "a7361901-1bd5-4ed3-bbe2-aeb465a5e513",
+          "c44b9d82-4ffc-4a48-beda-1045db209dae",
+          "7117d33b-d2e0-4e4e-af2f-1f8c10c86cc1",
+          "6ba13c0e-0ad9-446a-9f0d-4570e3d90d43",
+        ]);
 
       if (!fetchError) {
         setBag(data);
@@ -60,56 +63,66 @@ const Bags = () => {
 
   return (
     <section className="home-content-container">
-      <header className="bag-section-header">
-        <h2 className="bag-section-title">Our Favourites</h2>
-        <span className="bag-section-rule" aria-hidden="true" />
-      </header>
 
-      <div className="bag-grid">
-        {bag.map((item) => {
-          const path = item.image_paths.find((p) => p.includes("-f.png"));
-          if (!path) return null;
+      {/* bags: text left, grid right on desktop */}
+      <div className="feature-row">
+        <div className="feature-text">
+          <header className="bag-section-header">
+            <h2 className="bag-section-title">Our Favourites</h2>
+            <span className="bag-section-rule" aria-hidden="true" />
+          </header>
+          <p className="feature-lorem">{LOREM}</p>
+        </div>
 
-          const name = item.products?.name || item.size;
+        <div className="bag-grid">
+          {bag.map((item) => {
+            const path = item.image_paths.find((p) => p.includes("-f.png"));
+            if (!path) return null;
 
-          return (
-            <article className="bag-card" key={item.id}>
-              <div className="bag-card-media">
-                <img src={getImageUrl(path)} alt={name} loading="lazy" />
-                <button
-                  className="bag-card-btn"
-                  aria-label={`Add ${name} to bag`}
-                  onClick={() => console.log("add to bag", item.id)}
-                >
-                  <BagIcon />
-                </button>
-              </div>
+            const name = item.products?.name || item.size;
 
-              <h3 className="bag-card-name">{name}</h3>
-            </article>
-          );
-        })}
+            return (
+              <article className="bag-card" key={item.id}>
+                <div className="bag-card-media">
+                  <img src={getImageUrl(path)} alt={name} loading="lazy" />
+                  <button
+                    className="bag-card-btn"
+                    aria-label={`Add ${name} to bag`}
+                    onClick={() => console.log("add to bag", item.id)}
+                  >
+                    <BagIcon />
+                  </button>
+                </div>
+
+                <h3 className="bag-card-name">{name}</h3>
+              </article>
+            );
+          })}
+        </div>
       </div>
-      
-        <hr/>
 
-      <div className="accessory-hero">
-        <h2>SHOP OUR ACCESSORIES</h2>
-        <hr/>
+      <hr />
+
+      {/* accessories: grid left, text right on desktop */}
+      <div className="accessory-hero feature-row">
+        <div className="feature-text">
+          <h2>SHOP OUR ACCESSORIES</h2>
+          <hr />
+          <p className="feature-lorem">{LOREM}</p>
+          <div className="accessory-btns">
+            <button>Shop Now</button>
+          </div>
+        </div>
+
         <div className="accessory-img-container">
-        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/L-accessory.png" alt="accessory-hero-img" />
-        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/heart-accessory.png" alt="accessory" />
-        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/heart-accessory-2.png" alt="accessory" />
-        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/S-accessory.png" alt="accessory" />
-        </div>
-        
-        <div className="accessory-btns">
-          <button>Shop Now</button>
+          <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/L-accessory.png" alt="accessory-hero-img" />
+          <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/heart-accessory.png" alt="accessory" />
+          <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/heart-accessory-2.png" alt="accessory" />
+          <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/S-accessory.png" alt="accessory" />
         </div>
       </div>
-    </section>
 
-    
+    </section>
   );
 };
 
