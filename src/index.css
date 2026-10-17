@@ -349,6 +349,7 @@ body:has(.navbar-container.menu-open) {
   background-color: #fff;
   color: #111;
   padding: 3.5rem 1rem 4rem;
+  margin-bottom:1rem;
 }
 
 .bag-section-header {
@@ -488,4 +489,79 @@ body:has(.navbar-container.cart-open) {
 
 .nav-actions button{
   color:inherit;
+}
+
+/*
+===============================================================
+                            ACCESSORY HOME
+===============================================================
+*/
+
+/* space around the divider between bags and accessories */
+.home-content-container > hr {
+  margin: 3.5rem 1rem;
+}
+
+.accessory-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.accessory-hero h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.accessory-hero hr {
+  display: block;
+  width: 3rem;
+  height: 1px;
+  margin: 0.9rem auto 2.25rem;
+  background: #111;
+}
+
+.accessory-img-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 24rem; /* controls how big the images get */
+  margin: 0 auto;
+}
+
+.accessory-img-container img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background-color: #f4f2ee;
+}
+
+.accessory-btns {
+  margin-top: 2rem;
+}
+
+.accessory-btns button {
+  background: transparent;
+  border: 1px solid #111;
+  color: #111;
+  padding: 0.7rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.accessory-btns button:hover,
+.accessory-btns button:focus-visible {
+  background: #111;
+  color: #fff;
 }

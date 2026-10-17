@@ -90,6 +90,23 @@ const Bags = () => {
           );
         })}
       </div>
+      
+        <hr/>
+
+      <div className="accessory-hero">
+        <h2>SHOP OUR ACCESSORIES</h2>
+        <hr/>
+        <div className="accessory-img-container">
+        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/L-accessory.png" alt="accessory-hero-img" />
+        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/heart-accessory.png" alt="accessory" />
+        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/heart-accessory-2.png" alt="accessory" />
+        <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/S-accessory.png" alt="accessory" />
+        </div>
+        
+        <div className="accessory-btns">
+          <button>Shop Now</button>
+        </div>
+      </div>
     </section>
 
     
