@@ -79,7 +79,7 @@ const MobileMenu = ({ open }) => {
 
       <div className="cta">
         <button>Join the list</button>
-        <input type="email" placeholder="Email" />
+        <input type="email" placeholder="example@email.com" className="email-input" />
       </div>
       
       <div className="hamburger-footer">

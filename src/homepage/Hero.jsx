@@ -1,5 +1,5 @@
 import NavBar from "../Components/NavBar";
-
+import { Link } from "react-router-dom";
 const IMG = "https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images";
 
 const Hero = () => {
@@ -25,8 +25,14 @@ const Hero = () => {
       </div>
 
       <div className="hero-btns mobile-only">
-        <button>SHOP NOW</button>
-        <button>DETAILS</button>
+        <Link to="/shop" className="hero-btn">
+        SHOP NOW
+        </Link>
+        <Link to="/shop" className="hero-btn">
+        DETAILS
+        </Link>
+        
+       
       </div>
 
       <div className="hero-desktop">

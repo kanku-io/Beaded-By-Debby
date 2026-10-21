@@ -137,11 +137,12 @@ body{
   gap:2rem;
 }
 
-.hero-btns button{
+.hero-btn{
   background-color: transparent;
   border: 1px solid var(--text);
   color:var(--text);
   padding:0.7rem 2rem;
+  text-decoration: none;
 }
 
 /*
@@ -319,10 +320,10 @@ body:has(.navbar-container.menu-open) {
   font-weight: bold;
 }
 
-.cta input{
-  width:75vw;
+.email-input{
+  width:80vw;
   margin: auto;
-  height:1rem;
+  height:2.5rem;
   padding:0.5rem;
 }
 
@@ -1007,4 +1008,8 @@ body:has(.navbar-container.cart-open) {
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+.test{
+  color:white;
 }
