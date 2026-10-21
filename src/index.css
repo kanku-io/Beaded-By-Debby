@@ -15,7 +15,7 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: 0;
+  box-sizing: border-box;
 }
 
 body{
@@ -349,7 +349,7 @@ body:has(.navbar-container.menu-open) {
   background-color: #fff;
   color: #111;
   padding: 3.5rem 1rem 4rem;
-  margin-bottom:1rem;
+  margin-bottom:0;
 }
 
 .bag-section-header {
@@ -763,5 +763,248 @@ body:has(.navbar-container.cart-open) {
 
   .accessory-hero .feature-text {
     order: 1;
+  }
+}
+
+/*
+===============================================================
+                        FOOTER
+===============================================================
+*/
+
+.footer-container{
+  background-color: #fff;
+  color: #111;
+  width: 100%;
+  padding: 3.5rem 1.5rem 2rem;
+}
+
+.footer-container hr{
+  border: none;
+  height: 1px;
+  width: 100%;
+  margin: 2.25rem 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0), #111, rgba(0, 0, 0, 0));
+}
+
+.top-footer{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+}
+
+.top-footer h3{
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+}
+
+.top-footer p{
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.newsletter-signup{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: #f4f2ee;
+  padding: 2rem 1.5rem;
+  width: 100%;
+  margin: 2rem 0 0;
+}
+
+.newsletter-signup h5{
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 1.4rem;
+  letter-spacing: 0.14rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter-signup p{
+  opacity: 0.7;
+  font-weight: 300;
+  font-size: 0.8rem;
+  margin: 0 0 1rem;
+}
+
+.newsletter-signup input{
+  margin: 0 0 0.75rem;
+  border: 1px solid #111;
+  background-color: #fff;
+  color: #111;
+  padding: 0 1rem;
+  height: 2.75rem;
+  border-radius: 0;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.newsletter-signup input:focus-visible{
+  outline: 1px solid #111;
+  outline-offset: 2px;
+}
+
+.newsletter-signup button{
+  height: 2.75rem;
+  border-radius: 0;
+  background-color: #111;
+  border: 1px solid #111;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.newsletter-signup button:hover,
+.newsletter-signup button:focus-visible{
+  background-color: transparent;
+  color: #111;
+}
+
+.mid-footer{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1rem;
+  text-align: center;
+}
+
+.mid-footer > hr,
+.social-links,
+.lower-footer{
+  grid-column: 1 / -1;
+}
+
+.shop-footer-text,
+.help-list > p{
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.18rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.shop-list ul,
+.help-dropdown ul{
+  list-style: none;
+}
+
+.shop-list li,
+.help-dropdown li{
+  margin: 0.75rem 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.shop-list li:hover,
+.help-dropdown li:hover{
+  opacity: 0.6;
+}
+
+.social-links{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2.25rem;
+}
+
+.social-links p{
+  font-size: 0.7rem;
+  letter-spacing: 0.15rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.25s ease;
+}
+
+.social-links p:hover{
+  opacity: 0.6;
+}
+
+.lower-footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.legal{
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+.legal p{
+  cursor: pointer;
+}
+
+.lower-footer > p{
+  font-size: 0.65rem;
+  letter-spacing: 0.1rem;
+  opacity: 0.6;
+}
+
+@media (min-width: 1024px) {
+
+  .footer-container{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 5rem;
+    align-items: center;
+    padding: 5rem max(3rem, calc((100% - 1200px) / 2)) 2.5rem;
+  }
+
+  .footer-container hr,
+  .mid-footer{
+    grid-column: 1 / -1;
+  }
+
+  .footer-container hr{
+    margin: 3rem 0;
+  }
+
+  .newsletter-signup{
+    margin: 0;
+    max-width: 30rem;
+    justify-self: center;
+  }
+
+  .mid-footer{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .social-links{
+    grid-column: auto;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 0;
+  }
+
+  .social-links p{
+    margin: 0.75rem 0;
+  }
+
+  .lower-footer{
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
