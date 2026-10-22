@@ -1,7 +1,10 @@
-import { supabase } from "../supabaseClient"
-import { useState, useEffect } from "react"
+import { supabase } from "../supabaseClient";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const BUCKET = "product-images";
+
+const productPath = (item) => `/shop/${item.products?.slug}`;
 
 const getImageUrl = (path) =>
   supabase.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
@@ -34,7 +37,7 @@ const Bags = () => {
 
       const { data, error: fetchError } = await supabase
         .from("product_variants")
-        .select("*, products(name)")
+        .select("*, products(name, slug)")
         .in("id", [
           "a7361901-1bd5-4ed3-bbe2-aeb465a5e513",
           "c44b9d82-4ffc-4a48-beda-1045db209dae",
@@ -42,14 +45,12 @@ const Bags = () => {
           "6ba13c0e-0ad9-446a-9f0d-4570e3d90d43",
         ]);
 
-      if (!fetchError) {
-        setBag(data);
-      }
-
       if (fetchError) {
         console.error("Could not fetch data", fetchError.message);
         setBag([]);
         setError(fetchError.message);
+      } else {
+        setBag(data);
       }
 
       setLoading(false);
@@ -63,8 +64,6 @@ const Bags = () => {
 
   return (
     <section className="home-content-container">
-
-      {/* bags: text left, grid right on desktop */}
       <div className="feature-row">
         <div className="feature-text">
           <header className="bag-section-header">
@@ -76,15 +75,18 @@ const Bags = () => {
 
         <div className="bag-grid">
           {bag.map((item) => {
-            const path = item.image_paths.find((p) => p.includes("-f.png"));
+            const path = item.image_paths?.find((p) => p.includes("-f.png"));
             if (!path) return null;
 
             const name = item.products?.name || item.size;
+            const to = productPath(item);
 
             return (
               <article className="bag-card" key={item.id}>
                 <div className="bag-card-media">
-                  <img src={getImageUrl(path)} alt={name} loading="lazy" />
+                  <Link to={to} className="bag-card-link" aria-label={`View ${name}`}>
+                    <img src={getImageUrl(path)} alt={name} loading="lazy" />
+                  </Link>
                   <button
                     className="bag-card-btn"
                     aria-label={`Add ${name} to bag`}
@@ -94,7 +96,9 @@ const Bags = () => {
                   </button>
                 </div>
 
-                <h3 className="bag-card-name">{name}</h3>
+                <h3 className="bag-card-name">
+                  <Link to={to} className="bag-card-link">{name}</Link>
+                </h3>
               </article>
             );
           })}
@@ -103,14 +107,15 @@ const Bags = () => {
 
       <hr />
 
-      {/* accessories: grid left, text right on desktop */}
       <div className="accessory-hero feature-row">
         <div className="feature-text">
           <h2>SHOP OUR ACCESSORIES</h2>
           <hr />
           <p className="feature-lorem">{LOREM}</p>
           <div className="accessory-btns">
-            <button>Shop Now</button>
+            <Link to="/shop">
+              <button>Shop Now</button>
+            </Link>
           </div>
         </div>
 
@@ -121,7 +126,6 @@ const Bags = () => {
           <img src="https://ddxyfgfmmnutlxpzlkfa.supabase.co/storage/v1/object/public/product-images/Accessory-images/S-accessory.png" alt="accessory" />
         </div>
       </div>
-
     </section>
   );
 };

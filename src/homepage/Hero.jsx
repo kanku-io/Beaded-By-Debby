@@ -26,18 +26,18 @@ const Hero = () => {
 
       <div className="hero-btns mobile-only">
         <Link to="/shop" className="hero-btn">
-        SHOP NOW
+          SHOP NOW
         </Link>
-        <Link to="/shop" className="hero-btn">
-        DETAILS
+        <Link to="/shop/vanessa" className="hero-btn">
+          DETAILS
         </Link>
-        
-       
       </div>
 
       <div className="hero-desktop">
         <h1>Beaded By Debby</h1>
-        <button>Shop now</button>
+        <Link to="/shop" className="hero-btn">
+          SHOP NOW
+        </Link>
       </div>
     </div>
   )

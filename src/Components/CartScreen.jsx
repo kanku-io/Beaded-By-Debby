@@ -1,11 +1,11 @@
-import React from 'react'
+import CartItems from "./CartItems";
 
 const CartScreen = ({ open }) => {
   return (
-    <div className={`cart-menu ${open ? 'open' : ""}`}>
-      wowza
+    <div className={`cart-menu ${open ? "open" : ""}`}>
+      <CartItems />
     </div>
-  )
-}
+  );
+};
 
-export default CartScreen
+export default CartScreen;

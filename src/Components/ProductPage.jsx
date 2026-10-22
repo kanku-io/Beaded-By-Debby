@@ -3,6 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import { supabase } from "../supabaseClient";
+import { useCart } from "../Context/CartContext";
+
+
 
 const BUCKET = "product-images";
 
@@ -64,6 +67,30 @@ const ProductPage = () => {
     setVariantId(id);
     setImageIndex(0);
   };
+
+
+
+
+const { addItem } = useCart();
+const [added, setAdded] = useState(false);
+
+const handleAdd = () => {
+  if (!variant) return;
+
+  addItem({
+    variantId: variant.id,
+    slug: product.slug,
+    name: product.name,
+    label: [variant.label, variant.size].filter(Boolean).join(" · "),
+    price_cents: variant.price_cents,
+    image:
+      variant.image_paths?.find((p) => p.endsWith("-f.png")) ??
+      variant.image_paths?.[0],
+  });
+
+  setAdded(true);
+  setTimeout(() => setAdded(false), 1500);
+};
 
   return (
     <div className="shop-page">
@@ -142,8 +169,10 @@ const ProductPage = () => {
               </div>
             )}
 
-            <button className="product-add">Add to cart</button>
-          </div>
+            <button className="product-add" onClick={handleAdd} disabled={!variant}>
+            {added ? "Added" : "Add to cart"}
+            </button>          
+            </div>
         </div>
       )}
 
