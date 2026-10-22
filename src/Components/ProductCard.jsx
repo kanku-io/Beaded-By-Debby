@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 
 const BUCKET = "product-images";
@@ -18,7 +19,7 @@ const ProductCard = ({ variant }) => {
   if (!front) return null;
 
   return (
-    <div className="shop-card">
+    <Link to={`/shop/${variant.products?.slug}`} className="shop-card">
       <div className="shop-card-image">
         <img src={getImageUrl(front)} alt={variant.products?.name} />
       </div>
@@ -29,7 +30,7 @@ const ProductCard = ({ variant }) => {
           <p className="shop-card-price">{formatPrice(price)}</p>
         )}
       </div>
-    </div>
+    </Link>
   );
 };
 

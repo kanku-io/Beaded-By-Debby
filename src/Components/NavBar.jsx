@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Hamburger from './Hamburger';
 import CartComponent from './ShoppingCart';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
 
@@ -26,8 +27,7 @@ const NavBar = () => {
         <a href="#">Bags</a>
         <a href="#">Accessories</a>
       </nav>
-
-      <p className='navbar-heading'>Beaded By Debby</p>
+      <Link to="/" className='navbar-heading'>Beaded By Debby</Link>
 
       <div className="nav-actions">
         <CartComponent isOpen={isOpen} setIsOpen={setIsOpen}/>

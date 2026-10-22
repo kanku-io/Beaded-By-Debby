@@ -1,6 +1,7 @@
 import NavBar from "../Components/NavBar";
 import Footer from "../Components/Footer";
 import ProductCard from "../Components/ProductCard";
+import ProductCardSkeleton from "../Components/ProductCardSkeleton";
 import { supabase } from "../supabaseClient";
 import { useEffect, useState } from "react";
 
@@ -72,13 +73,14 @@ const Products = () => {
 
       <hr className="shop-divider" />
 
-      {loading && <p className="shop-status">loading...</p>}
       {error && <p className="shop-status">something went wrong</p>}
 
       <div className="shop-grid">
-        {featured.map((item) => (
-          <ProductCard key={item.id} variant={item} />
-        ))}
+        {loading
+          ? FEATURED_IDS.map((id) => <ProductCardSkeleton key={id} />)
+          : featured.map((item) => (
+              <ProductCard key={item.id} variant={item} />
+            ))}
       </div>
 
       <Footer />
